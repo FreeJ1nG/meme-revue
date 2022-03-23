@@ -121,10 +121,13 @@ function MemeExploreBox({ filterText, search }) {
         }
       })}
       </Masonry>
-      <img
-        src={ (memesFound == 0 && !search) && "/memenotfound.png"}
-        className="w-1/2"
-      />
+      {
+        (memesFound == 0 && !search) &&
+        <img
+          src="/memenotfound.png"
+          className="w-1/2"
+        />
+      }
     </div>
   );
 }
