@@ -12,8 +12,9 @@ function SearchBar({ filterText, onFilterTextChange }) {
       <div className="w-1/1 flex justify-center">
         <form className="w-1/2 flex justify-center">
           <img
-          src="/search.png"
-          className="rounded-tl-xl rounded-bl-xl p-2 w-10 bg-third object-cover"
+            alt="search"
+            src="/search.png"
+            className="w-2/7 rounded-tl-xl rounded-bl-xl p-2 w-10 bg-third object-cover"
           />
           <input
             className="w-full p-2 rounded-tr-xl rounded-br-xl bg-third border-solid"
@@ -68,16 +69,16 @@ function SaveButton({ meme }) {
 function MemeBox({ meme }) {
   const { memes, saveMeme, deleteMeme } = useMeme()
   return (
-    <div className="w-1/1 align-middle float-left p-2 rounded-lg bg-first hover:bg-opacity-50">
+    <div className="w-full align-middle rounded-xl p-5">
       <div>
         <img
           src={ meme.imageSrc }
           alt={ meme.title }
-          className="w-1/1 rounded-lg"
+          className="w-full rounded-tl-xl rounded-tr-xl"
         />
       </div>
-      <div className="p-3 bg-third rounded-xl grid place-items-center">
-        <h2 className="container mx-auto">{ meme.title }</h2>
+      <div className="p-3 bg-third grid place-items-center rounded-bl-xl rounded-br-xl">
+        <h2 className="font-bold text-xl">{ meme.title }</h2>
         <SaveButton meme={ meme } />
       </div>
     </div>
@@ -95,41 +96,77 @@ const breakpoints = {
 function MemeExploreBox({ filterText, search }) {
   const { memes, saveMeme, deleteMeme } = useMeme()
   let memesFound = 0;
-  return (
-    <div className="grid place-items-center">
-      <h1 className="m-10 font-bold font-sans subpixel-antialiased text-5xl">Explore Memes</h1>
-      <Masonry
-        breakpointCols={breakpoints}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-      { memes.map((meme) => {
-        if (search) {
-          if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
-            memesFound++;
-            return <MemeBox key = { meme.id } meme={ meme } />
-          } else {
-            return;
-          }
-        } else {
-          if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
-            memesFound++;
-            return <MemeBox key = { meme.id } meme={ meme } />
-          } else {
-            return;
-          }
-        }
-      })}
-      </Masonry>
-      {
-        (memesFound == 0 && !search) &&
-        <img
-          src="/memenotfound.png"
-          className="w-1/2"
-        />
+
+  let firstMeme;
+
+  for (var meme of memes) {
+    if (search) {
+      if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
+        firstMeme = meme;
+        memesFound++;
       }
-    </div>
-  );
+    } else {
+      if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
+        firstMeme = meme;
+        memesFound++;
+      }
+    }
+  }
+
+  if (memesFound == 1) {
+    return (
+      <>
+        <div className="w-full flex justify-center">
+          <img
+            src={ firstMeme.imageSrc }
+            alt={ firstMeme.title }
+            className="w-1/4 rounded-tl-xl rounded-tr-xl mt-10  "
+          />
+        </div>
+        <div className="w-full flex justify-center">
+          <div className="w-1/4 bg-third p-3 grid place-items-center rounded-bl-xl rounded-br-xl">
+            <h1 className="font-bold text-xl">{ firstMeme.title }</h1>
+            <SaveButton meme={ firstMeme }/>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <div className="grid place-items-center">
+        <h1 className="m-10 font-bold font-sans subpixel-antialiased text-5xl">Explore Memes</h1>
+        {
+          (memesFound == 0 && !search) &&
+          <img
+            alt="memenotfound"
+            src="/memenotfound.png"
+            className="w-1/2"
+          />
+        }
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          { memes.map((meme) => {
+            if (search) {
+              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
+                return <MemeBox key = { meme.id } meme={ meme } />
+              } else {
+                return;
+              }
+            } else {
+              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
+                return <MemeBox key = { meme.id } meme={ meme } />
+              } else {
+                return;
+              }
+            }
+          })}
+        </Masonry>
+      </div>
+    );
+  }
 }
 
 const Home: BlitzPage = () => {
