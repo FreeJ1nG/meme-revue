@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.color1 {color: #000013;}
+.color2 {color: #282852;}
+.color3 {color: #5a55a0;}
+.color4 {color: #9989fa;}
+.color5 {color: #e3c4ff;}
+
 @layer components {
   .hero {
     @apply w-full text-[#333];
@@ -16,4 +22,33 @@
 .title,
 .description {
   @apply text-center;
+}
+
+h1 {
+  color: #e3c4ff;
+}
+
+body {
+	background-color: #000013;
+	color: #e3c4ff;
+}
+
+.active {
+	background-color: #9989fa;
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  background: #282852;
 }
