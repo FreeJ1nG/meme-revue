@@ -58,7 +58,7 @@ function SaveButton({ meme }) {
           saveMeme(meme.id);
         }
       }}
-      className = "transition ease-in-out delay-150 bg-second hover:-translate-y-1 hover:scale-110 hover:bg-fourth duration-300 m-1 p-2 rounded-lg"
+      className="transition ease-in-out delay-150 bg-second hover:-translate-y-1 hover:scale-110 hover:bg-fourth duration-300 m-1 p-2 rounded-lg"
     >
       { meme.saved ? 'Remove from Saved' : 'Save' }
     </button>
@@ -68,17 +68,17 @@ function SaveButton({ meme }) {
 function MemeBox({ meme }) {
   const { memes, saveMeme, deleteMeme } = useMeme()
   return (
-    <div className = "w-1/1 align-middle float-left p-2 rounded-lg bg-first hover:bg-opacity-50">
+    <div className="w-1/1 align-middle float-left p-2 rounded-lg bg-first hover:bg-opacity-50">
       <div>
         <img
           src={ meme.imageSrc }
           alt={ meme.title }
-          className = "w-1/1 rounded-lg"
+          className="w-1/1 rounded-lg"
         />
       </div>
-      <div className = "p-3 bg-third rounded-xl grid place-items-center">
-        <h2 className = "container mx-auto">{ meme.title }</h2>
-        <SaveButton className = "place-self-center" meme={ meme } />
+      <div className="p-3 bg-third rounded-xl grid place-items-center">
+        <h2 className="container mx-auto">{ meme.title }</h2>
+        <SaveButton meme={ meme } />
       </div>
     </div>
   );
