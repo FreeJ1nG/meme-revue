@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "blitz dev",
-    "start:production": "blitz start --port $process.env.PORT",
+    "start:production": "blitz start --port $PORT",
     "heroku-postbuild": "blitz prisma migrate deploy --preview-feature && blitz build",
     "build": "blitz build",
     "start": "blitz start",
