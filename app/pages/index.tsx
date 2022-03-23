@@ -95,33 +95,78 @@ const breakpoints = {
 
 function MemeExploreBox({ filterText, search }) {
   const { memes, saveMeme, deleteMeme } = useMeme()
+  let memesFound = 0;
 
-  return (
-    <div className="grid place-items-center">
-      <h1 className="m-10 font-bold font-sans subpixel-antialiased text-5xl">Explore Memes</h1>
-      <Masonry
-        breakpointCols={breakpoints}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        { memes.map((meme) => {
-          if (search) {
-            if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
-              return <MemeBox key = { meme.id } meme={ meme } />
+  let firstMeme;
+
+  for (var meme of memes) {
+    if (search) {
+      if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
+        firstMeme = meme;
+        memesFound++;
+      }
+    } else {
+      if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
+        firstMeme = meme;
+        memesFound++;
+      }
+    }
+  }
+
+  if (memesFound == 1) {
+    return (
+      <>
+        <div className="w-full flex justify-center">
+          <img
+            src={ firstMeme.imageSrc }
+            alt={ firstMeme.title }
+            className="w-1/4 rounded-tl-xl rounded-tr-xl mt-10  "
+          />
+        </div>
+        <div className="w-full flex justify-center">
+          <div className="w-1/4 bg-third p-3 grid place-items-center rounded-bl-xl rounded-br-xl">
+            <h1 className="font-bold text-xl">{ firstMeme.title }</h1>
+            <SaveButton meme={ firstMeme }/>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <div className="grid place-items-center">
+        <h1 className="m-10 font-bold font-sans subpixel-antialiased text-5xl">Explore Memes</h1>
+        {
+          (memesFound == 0 && !search) &&
+          <img
+            alt="memenotfound"
+            src="/memenotfound.png"
+            className="w-1/2"
+          />
+        }
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          { memes.map((meme) => {
+            if (search) {
+              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
+                return <MemeBox key = { meme.id } meme={ meme } />
+              } else {
+                return;
+              }
             } else {
-              return;
+              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
+                return <MemeBox key = { meme.id } meme={ meme } />
+              } else {
+                return;
+              }
             }
-          } else {
-            if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
-              return <MemeBox key = { meme.id } meme={ meme } />
-            } else {
-              return;
-            }
-          }
-        })}
-      </Masonry>
-    </div>
-  );
+          })}
+        </Masonry>
+      </div>
+    );
+  }
 }
 
 const Home: BlitzPage = () => {
