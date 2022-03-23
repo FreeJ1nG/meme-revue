@@ -6,17 +6,17 @@ import Masonry from 'react-masonry-css'
 function SearchBar({ filterText, onFilterTextChange }) {
   return (
     <div>
-      <div class="mt-5 flex justify-center">
-        <h1 class="font-bold font-sans subpixel-antialiased text-xl">Search Bar</h1>
+      <div className="mt-5 flex justify-center">
+        <h1 className="font-bold font-sans subpixel-antialiased text-xl">Search Bar</h1>
       </div>
-      <div class="w-1/1 flex justify-center">
-        <form class="w-1/2 flex justify-center">
+      <div className="w-1/1 flex justify-center">
+        <form className="w-1/2 flex justify-center">
           <img
           src="/search.png"
-          class="rounded-tl-xl rounded-bl-xl p-2 w-10 bg-third object-cover"
+          className="rounded-tl-xl rounded-bl-xl p-2 w-10 bg-third object-cover"
           />
           <input
-            class="w-full p-2 rounded-tr-xl rounded-br-xl bg-third border-solid"
+            className="w-full p-2 rounded-tr-xl rounded-br-xl bg-third border-solid"
             type="text"
             value={ filterText }
             placeholder="Search"
@@ -123,7 +123,7 @@ function MemeExploreBox({ filterText, search }) {
       </Masonry>
       <img
         src={ (memesFound == 0 && !search) && "/memenotfound.png"}
-        class="w-1/2"
+        className="w-1/2"
       />
     </div>
   );
