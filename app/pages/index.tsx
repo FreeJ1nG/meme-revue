@@ -107,14 +107,14 @@ function MemeExploreBox({ filterText, search }) {
         if (search) {
           if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
             memesFound++;
-            return <MemeBox meme={ meme } />
+            return <MemeBox key = { meme.id } meme={ meme } />
           } else {
             return;
           }
         } else {
           if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
             memesFound++;
-            return <MemeBox meme={ meme } />
+            return <MemeBox key = { meme.id } meme={ meme } />
           } else {
             return;
           }
