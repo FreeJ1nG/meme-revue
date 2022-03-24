@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 'first': '#323347',
+'second': '#5561FF',
+'third': '#3643FC',
+'fourth': '#FFFFFF', */
 .color1 {color: #000013;}
 .color2 {color: #282852;}
 .color3 {color: #5a55a0;}
@@ -25,16 +29,16 @@
 }
 
 h1 {
-  color: #e3c4ff;
+  color: #FFFFFF;
 }
 
 body {
-	background-color: #000013;
-	color: #e3c4ff;
+	background-color: #323347;
+	color: #FFFFFF;
 }
 
 .active {
-	background-color: #9989fa;
+	background-color: #3643FC;
 }
 
 .my-masonry-grid {
