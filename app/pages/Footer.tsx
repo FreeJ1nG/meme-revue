@@ -1,4 +1,4 @@
-import CompfestLogo from './CompfestLogo.tsx'
+import CompfestLogo from './CompfestLogo'
 
 export default function Footer({ showFooter, handleClick }) {
   return (

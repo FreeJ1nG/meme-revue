@@ -2,14 +2,14 @@ import { useMeme } from "app/core/hooks/useMeme"
 import { useState } from 'react'
 import { BlitzPage, Image } from "blitz"
 import Masonry from 'react-masonry-css'
-import SaveButton from './SaveButton.tsx'
-import SearchBar from './SearchBar.tsx'
-import SearchAndSavedBar from './SearchAndSavedBar.tsx'
-import MemeBox from './MemeBox.tsx'
-import CompfestLogo from './CompfestLogo.tsx'
-import MemeExploreBox from './MemeExploreBox.tsx'
-import Title from './Title.tsx'
-import Footer from './Footer.tsx'
+import SaveButton from './SaveButton'
+import SearchBar from './SearchBar'
+import SearchAndSavedBar from './SearchAndSavedBar'
+import MemeBox from './MemeBox'
+import CompfestLogo from './CompfestLogo'
+import MemeExploreBox from './MemeExploreBox'
+import Title from './Title'
+import Footer from './Footer'
 
 const Home: BlitzPage = () => {
   const [search, setSearch] = useState(true)

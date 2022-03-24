@@ -2,11 +2,11 @@ import { useMeme } from "app/core/hooks/useMeme"
 import { useState } from 'react'
 import { BlitzPage, Image } from "blitz"
 import Masonry from 'react-masonry-css'
-import SaveButton from './SaveButton.tsx'
-import SearchBar from './SearchBar.tsx'
-import MemeBox from './MemeBox.tsx'
-import CompfestLogo from './CompfestLogo.tsx'
-import MemeExploreBox from './MemeExploreBox.tsx'
+import SaveButton from './SaveButton'
+import SearchBar from './SearchBar'
+import MemeBox from './MemeBox'
+import CompfestLogo from './CompfestLogo'
+import MemeExploreBox from './MemeExploreBox'
 
 export default function SearchAndSavedBar({ search, handleClick }) {
   const active = " bg-gradient-to-t from-third to-second border-4 border-white/10 rounded-xl ";
