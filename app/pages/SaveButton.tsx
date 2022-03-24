@@ -10,6 +10,12 @@ import MemeExploreBox from './MemeExploreBox.tsx'
 
 export default function SaveButton({ meme }) {
   const { memes, saveMeme, deleteMeme } = useMeme()
+  let color = "";
+  if (meme.saved) {
+    color = " bg-black/10 ";
+  } else {
+    color = " bg-gradient-to-t from-third to-second "
+  }
   return (
     <button
       onClick={() => {
@@ -19,15 +25,22 @@ export default function SaveButton({ meme }) {
           saveMeme(meme.id);
         }
       }}
-      className="w-1/2 transition ease-in-out delay-150 bg-gradient-to-t from-third to-second hover:-translate-y-1 hover:scale-110 hover:bg-second duration-300 m-1 p-2 rounded-lg"
+      className= {"w-40 h-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:opacity-70 duration-300 m-1 p-2 rounded-lg " + color}
     >
-      <div className="flex justify-center items-center p-2">
-        <img
-          className="w-1/6 mr-3"
-          src="/save-button.png"
-        />
-        <h2 className="font-semibold">
-          { meme.saved ? 'Remove from Saved' : 'Save' }
+      <div className="flex justify-center items-center">
+        {( meme.saved ?
+            <img
+              src="/saved-meme-button.png"
+              className="w-4 mr-3"
+            />
+            :
+            <img
+              src="/save-button.png"
+              className="w-4 mr-3"
+            />
+        )}
+        <h2 className="font-semibold font-inter">
+          { meme.saved ? 'Saved' : 'Save' }
         </h2>
       </div>
     </button>

@@ -11,6 +11,9 @@ module.exports = {
         'desc-box': '#3E405B',
         'searchbar-outline': '#6E7198',
       },
+      fontFamily: {
+        inter: ['Roboto', 'sans-serif']
+      },
     },
   },
   plugins: [],

@@ -22,8 +22,8 @@ export default function SearchAndSavedBar({ search, handleClick }) {
               src="/search-button.png"
               className="w-5 h-5 mr-4"
             />
-            <span className="font-semibold">
-              Search
+            <span className="font-semibold font-inter">
+              Explore
             </span>
           </div>
         </button>
@@ -36,7 +36,7 @@ export default function SearchAndSavedBar({ search, handleClick }) {
               src="/saved-button.png"
               className="w-4 h-5 mr-4"
             />
-            <span className="font-semibold">
+            <span className="font-semibold font-inter">
               Saved
             </span>
           </div>

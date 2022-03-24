@@ -10,7 +10,7 @@ import MemeExploreBox from './MemeExploreBox.tsx'
 
 export default function CompfestLogo() {
   return (
-    <div className="flex justify-center items-center mt-5 mb-10">
+    <div className="flex items-center">
       <img
         src="/compfest-logo.png"
         className="w-6 h-6 mr-4"

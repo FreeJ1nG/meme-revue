@@ -63,27 +63,29 @@ export default function MemeExploreBox({ filterText, search }) {
             className="w-1/2"
           />
         }
-        <Masonry
-          breakpointCols={breakpoints}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          { memes.map((meme) => {
-            if (search) {
-              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
-                return <MemeBox key = { meme.id } meme={ meme } />
+        <div className="mx-20">
+          <Masonry
+            breakpointCols={breakpoints}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            { memes.map((meme) => {
+              if (search) {
+                if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1) {
+                  return <MemeBox key={ meme.id } meme={ meme } />
+                } else {
+                  return;
+                }
               } else {
-                return;
+                if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
+                  return <MemeBox key={ meme.id } meme={ meme } />
+                } else {
+                  return;
+                }
               }
-            } else {
-              if (meme.title.toLowerCase().indexOf(filterText.toLowerCase()) !== -1 && meme.saved) {
-                return <MemeBox key = { meme.id } meme={ meme } />
-              } else {
-                return;
-              }
-            }
-          })}
-        </Masonry>
+            })}
+          </Masonry>
+        </div>
       </div>
     );
   }
