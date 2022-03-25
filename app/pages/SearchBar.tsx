@@ -12,7 +12,7 @@ export default function SearchBar({ filterText, onFilterTextChange }) {
   return (
     <div>
       <div className="flex justify-center w-full flex-wrap mb-8">
-        <div className="w-1/2">
+        <div className="w-2/3 lg:w-1/3">
           <div>
             <h1 className="font-medium font-sans subpixel-antialiased text-xl">Search for a meme</h1>
           </div>

@@ -11,9 +11,9 @@ import MemeExploreBox from './MemeExploreBox'
 export default function Title() {
   return (
     <div className="flex justify-center flex-wrap my-12">
-      <span className="font-bold text-[64px]">Meme ReVue</span>
+      <span className="font-bold text-[32px] xl:text-[64px]">Meme ReVue</span>
       <div className="w-full text-[16px] font-inter font-medium" />
-      <span>(get it, cuz IT Dev, vuejs)</span>
+      <span>(Get it, cuz IT Dev, Vuejs)</span>
     </div>
   );
 }
