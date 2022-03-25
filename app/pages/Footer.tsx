@@ -5,30 +5,30 @@ export default function Footer({ showFooter, handleClick }) {
     <div>
     {
       showFooter &&
-      <div className="fixed inset-x-0 bottom-0 h-40 w-full bg-[#2D2F45]">
+      <div className="group fixed inset-x-0 bottom-0 h-40 w-full bg-[#2D2F45]">
         <button
           onClick={ () => handleClick() }
-          className="absolute right-4"
+          className="absolute right-4 top-4"
         >
           <img
             src="/dropdown.png"
             alt="dropdown"
-            className="w-10"
+            className="w-10 animate-bounce"
           />
         </button>
-        <div className="flex w-full h-full">
-          <div className="flex items-center w-1/2 h-full">
-            <div className="relative left-20">
-              <div className="opacity-80 w-full mb-4">
+        <div className="flex w-full h-full flex-wrap xl:flex-nowrap">
+          <div className="flex items-center xl:w-1/2 xl:h-full xl:justify-start justify-center w-full h-2/3">
+            <div className="relative xl:left-20">
+              <div className="opacity-80 w-full mb-4 flex justify-center xl:flex-none xl:justify-start">
                 <CompfestLogo />
               </div>
               <span className="font-inter font-medium text-white/80">&copy; 2022 COMPFEST. All rights reserved</span>
             </div>
           </div>
-          <div className="flex flex-row-reverse items-center h-full w-1/2">
+          <div className="flex xl:flex-row-reverse xl:justify-start xl:h-full xl:w-1/2 justify-center items-center justify-start h-1/3 w-full">
             <a
               href="https://medium.com/compfest"
-              className="ml-8 mr-16"
+              className="ml-8 xl:mr-16"
             >
               <img
                 src="/medium.png"
@@ -102,12 +102,12 @@ export default function Footer({ showFooter, handleClick }) {
     }
     {
       !showFooter &&
-      <div className="fixed inset-x-0 bottom-0 h-10 w-full bg-[#2D2F45]">
+      <div className="fixed inset-x-0 bottom-0 h-14 w-full bg-[#2D2F45]">
         <button onClick={ () => handleClick() }>
           <img
             src="/reveal.png"
             alt="reveal"
-            className="w-10 absolute right-4 bottom-0"
+            className="w-10 absolute right-4 bottom-0 animate-bounce"
           />
         </button>
       </div>
