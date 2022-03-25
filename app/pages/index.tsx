@@ -32,10 +32,12 @@ const Home: BlitzPage = () => {
         filterText={ filterText }
         onFilterTextChange={ setFilterText }
       />
-      <MemeExploreBox
-        filterText={ filterText }
-        search={ search }
-      />
+      <div className="mb-20">
+        <MemeExploreBox
+          filterText={ filterText }
+          search={ search }
+        />
+      </div>
       <Footer
         showFooter={ showFooter }
         handleClick={ () => (setShowFooter(!showFooter)) }

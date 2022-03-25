@@ -28,7 +28,7 @@ export default function SearchBar({ filterText, onFilterTextChange }) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input
-              className="w-full p-2 rounded-tr-xl rounded-br-xl bg-first border-solid placeholder:text-fourth/10 group-hover:placeholder:text-fourth"
+              className="w-full p-2 rounded-tr-xl rounded-br-xl bg-first placeholder:text-fourth/10 group-hover:placeholder:text-fourth"
               type="text"
               value={ filterText }
               placeholder="or die"

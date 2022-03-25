@@ -14,7 +14,7 @@ export default function SearchAndSavedBar({ search, handleClick }) {
     <div className="flex justify-center items-center">
       <div className="rounded-xl bg-black/10 flex justify-center xl:w-1/3 lg:w-2/5 m:w-1/2 sm:w-3/4">
         <button
-          className={(search && active) + " w-1/2 py-3 px-16"}
+          className={ (search && active) + " w-1/2 py-3 px-16" }
           onClick={ () => handleClick(true) }
         >
           <div className="flex justify-center items-center">

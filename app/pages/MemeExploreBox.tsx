@@ -60,7 +60,7 @@ export default function MemeExploreBox({ filterText, search }) {
           <img
             alt="memenotfound"
             src="/memenotfound.png"
-            className="w-1/2"
+            className="w-5/6 xl:w-1/2"
           />
         }
         <div className="mx-20">
