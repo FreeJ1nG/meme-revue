@@ -5,7 +5,7 @@ export default function Footer({ showFooter, handleClick }) {
     <div>
       <div
         className={`fixed inset-x-0 bottom-0 w-full bg-[#2D2F45] duration-500 transition-all flex w-full flex-wrap xl:flex-nowrap ${
-          showFooter && "h-[220px]"
+          showFooter && "h-40"
         } ${!showFooter && "h-12"}`}
       >
         <button onClick={() => handleClick()} className="">
@@ -15,7 +15,7 @@ export default function Footer({ showFooter, handleClick }) {
             className="w-10 animate-bounce absolute top-2 left-0 right-0 ml-auto mr-auto"
           />
         </button>
-        <div className="overflow-none flex items-center xl:w-1/2 xl:h-full xl:justify-start justify-center w-full h-2/3">
+        <div className="overflow-none flex items-end xl:items-center xl:w-1/2 xl:h-full xl:justify-start justify-center w-full h-2/3">
           <div className="relative xl:left-20">
             <div className="opacity-80 w-full mb-4 flex justify-center xl:flex-none xl:justify-start">
               {showFooter && <CompfestLogo />}
