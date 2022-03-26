@@ -4,7 +4,7 @@ export default function Footer({ showFooter, handleClick }) {
   return (
     <div>
       <div
-        className={`fixed inset-x-0 bottom-0 w-full bg-[#2D2F45] transition-all flex w-full flex-wrap xl:flex-nowrap ${
+        className={`fixed inset-x-0 bottom-0 w-full bg-[#2D2F45] duration-500 transition-all flex w-full flex-wrap xl:flex-nowrap ${
           showFooter && "h-[220px]"
         } ${!showFooter && "h-12"}`}
       >
